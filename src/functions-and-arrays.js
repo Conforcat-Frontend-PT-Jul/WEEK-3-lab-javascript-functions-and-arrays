@@ -108,22 +108,25 @@ function averageWordLength(wordsArr) {
   return averageNumbers(wordsLength);
 }
 
-// Bonus - Iteration #4.3
-console.log("4.3 Mixed array average: ",avg(mixedArr));
+// Bonus  Iteration #4.3
+const mixedArr2 = [6, 12, 'miami', 1, false, 'barca', '200', 'lisboa', 8];
+console.log("4.3 Mixed array average: ",avg(mixedArr2));
 
-function avg(mixedArr) {
+function avg(mixedArr2) {
   let valuesForAvg = [];
-  
-  mixedArr.forEach(function (current){
+  //console.log(mixedArr2);
+  mixedArr2.forEach(function (current){
+    //console.log(current);
     if(typeof current === 'number'){
       valuesForAvg.push(current);
     }else if(typeof current === 'string'){
       valuesForAvg.push(current.length);
     }else if(current === true){
       valuesForAvg.push(1);
+    }else if (current === false){
+      valuesForAvg.push(0);
     }
  });
-  //console.log(valuesForAvg);
   return averageNumbers(valuesForAvg);
 }
 
