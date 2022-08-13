@@ -92,12 +92,7 @@ function sum(mixedArr) {
   });
 
   return sumtotal;
-  
-  //for (var i = 0; i < mixedArr.length; i++) {
-    //sumtotal = sumtotal + mixedArr[i].Amount;
-  //}
-  //return sumtotal;
-  
+    
 }
 console.log(sum(mixedArr));
 
@@ -107,13 +102,51 @@ console.log(sum(mixedArr));
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  let sumtotal = 0;
+
+  if(numbersAvg.length == 0) {
+      
+    return null; }
+    
+  else {
+  
+  for (let i = 0; i < numbersAvg.length; i++) {
+
+    sumtotal += numbersAvg[i];
+
+    average = sumtotal / numbersAvg.length;
+  }
+  //console.log(sumtotal);
+
+  return average;
+}
+}
+console.log(averageNumbers(numbersAvg));
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) { 
+  let sumtotal = 0;
+
+  if(wordsArr.length == 0) {
+          return null; }
+    
+  else {
+    wordsArr.forEach(function (quant) {
+      if (typeof quant === 'string') {
+        sumtotal += quant.length;
+        average = sumtotal / wordsArr.length;
+  }
+});
+  
+  return average;
+}
+}
+console.log(averageWordLength(wordsArr));
+
 
 // Bonus - Iteration #4.1
 function avg() {}
