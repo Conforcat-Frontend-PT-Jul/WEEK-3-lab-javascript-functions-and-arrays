@@ -1,24 +1,105 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(number1, number2) {
+ 
+    
+  if (number1 > number2) {
+  
+    console.log("if the first argument greater");
+    return number1; 
 
+  } else if (number1 < number2) {
+    console.log("if the second argument greater");
+    return number2;
 
+  } else {
+
+    console.log("if both arguments are equal");
+    return number2;
+  }
+  
+}
+//maxOfTwoNumbers (2, 3);
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+  
 
-function findLongestWord() {}
+  function findLongestWord(words) {
 
+    let longestword = "";
+
+    if(words.length == 0) {
+      
+      return null; }
+      
+    else {
+    
+    for (let i = 0; i < words.length; i++) {
+     
+    if (words[i].length > longestword.length) {
+        longestword = words[i];
+    }
+    //console.log(longestword);
+    }
+    return longestword;
+    }
+  }
+  console.log(findLongestWord(words));
+  
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let sumtotal = 0;
 
+  for (let i = 0; i < numbers.length; i++) {
+
+    sumtotal += numbers[i];
+  }
+  //console.log(sumtotal);
+
+  return sumtotal;
+}
+console.log(sumNumbers(numbers));
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+// should return: 57
+
+function sum(mixedArr) {
+  let sumtotal = 0;
+  
+  mixedArr.forEach(function (values) {
+    if (typeof values === 'number') {
+        sumtotal += values;
+
+    } else if(typeof values === 'string') {
+        sumtotal += values.length;
+
+    } else if(values === true) {
+        sumtotal += 1;
+
+    } else if(values === false) {
+        sumtotal = sumtotal;
+
+    } else {   
+      throw new Error("Unsupported data type sir or ma'am");  
+    }
+  });
+
+  return sumtotal;
+  
+  //for (var i = 0; i < mixedArr.length; i++) {
+    //sumtotal = sumtotal + mixedArr[i].Amount;
+  //}
+  //return sumtotal;
+  
+}
+console.log(sum(mixedArr));
 
 
 
