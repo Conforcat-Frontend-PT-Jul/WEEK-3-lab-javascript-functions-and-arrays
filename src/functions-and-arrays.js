@@ -76,11 +76,7 @@ function averageNumbers(array) {
     return null;
   }  
 
-  let suma = sumNumbers(array);
-  let result = suma / array.length;
-
-  return result;
-
+  return sumNumbers(array) / array.length;
 }
 
 
@@ -158,9 +154,7 @@ function doesWordExist(array,word) {
     return null;
   }
 
-  let isWordInArray = array.includes(word);
-
-  return isWordInArray;
+  return array.includes(word);
 }
 
 
@@ -220,10 +214,49 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct(array) {}
+function greatestProduct(matrix) {
+  let biggestProduct = 0;
 
+  for (let row=0; row < matrix.length-4; row++){
+    for (let column=0; column < matrix[row].length-4; column++) { 
+      const productNumberRows = matrix[row][column]*matrix[row+1][column]*matrix[row+2][column]*matrix[row+3][column];
+      const productNumberColumns = matrix[row][column]*matrix[row][column+1]*matrix[row][column+2]*matrix[row][column+3];
 
+      if (productNumberRows > biggestProduct) {
+        biggestProduct = productNumberRows; 
+      }
+      if (productNumberColumns > biggestProduct) {
+        biggestProduct = productNumberColumns;
+      } 
+    }
+  }
+  return biggestProduct;
+}
 
+// Iteration #8.2: Bonus 2
+
+function greatestProductOfDiagonals(matrix) {
+  let biggestProduct = 0;
+
+  for (let row=0; row < matrix.length-4; row++){
+    for (let column=0; column < matrix[row].length-4; column++) { 
+      const productNumberRows = matrix[row][column]*matrix[row+1][column]*matrix[row+2][column]*matrix[row+3][column];
+      const productNumberColumns = matrix[row][column]*matrix[row][column+1]*matrix[row][column+2]*matrix[row][column+3];
+      const productNumberDiagonals = matrix[row][column]*matrix[row+1][column+1]*matrix[row+2][column+2]*matrix[row+3][column+3];
+
+      if (productNumberRows > biggestProduct) {
+        biggestProduct = productNumberRows; 
+      }
+      if (productNumberColumns > biggestProduct) {
+        biggestProduct = productNumberColumns;
+      } 
+      if (productNumberDiagonals > biggestProduct) {
+        biggestProduct = productNumberDiagonals;
+      } 
+    }
+  }
+  return biggestProduct;
+}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
