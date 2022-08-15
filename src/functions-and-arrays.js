@@ -2,9 +2,9 @@
 const nums = [1, 8];
 
 function maxOfTwoNumbers() {
-  return Math.max.apply(null, (nums)); 
+  console.log( Math.max.apply(null, (nums))); 
 }
-console.log(maxOfTwoNumbers());
+maxOfTwoNumbers();
 
 
 
@@ -15,9 +15,9 @@ function findTheLongestWord(){
   let findTheLongestWord = '';
   for (let i of words) 
   if (i.length > findTheLongestWord.length)findTheLongestWord = i
-  return findTheLongestWord
+ console.log(findTheLongestWord);
 }
-console.log(findTheLongestWord());
+findTheLongestWord();
 
 
 // Iteration #3: Calculate the sum
@@ -26,10 +26,10 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumNumbers() {
     let sumNumbers=0;
     for(let i of numbers)sumNumbers+=i;
-    return sumNumbers
+    console.log(sumNumbers);
 }
 
-console.log(sumNumbers());
+sumNumbers();
 
 
 // Iteration #3.1 Bonus:
