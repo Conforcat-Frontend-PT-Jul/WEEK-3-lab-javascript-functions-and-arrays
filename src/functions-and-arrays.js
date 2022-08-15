@@ -1,24 +1,72 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  return (num1 >= num2) ? num1 : num2;
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+
+  let longestWord = arr[0];
+
+  arr.forEach(word => {
+    if (word.length > longestWord.length) {
+      longestWord = word;
+    }
+  });
+
+  return longestWord;
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(arr) {
+  let totalSum = 0;
+
+  arr.forEach(num => {
+    totalSum += num;
+  });
+  
+  return totalSum;
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+function sum(arr) {
+  let totalSum = 0;
+
+  arr.forEach(val => {
+    if (typeof val === "number") {
+      totalSum += val;
+    }
+
+    if (typeof val === "string") {
+      totalSum += val.length;
+    }
+
+    if (val === true) {
+      totalSum += 1;
+    }
+
+    if (typeof val === "object") {
+      throw new Error ("Unsupported data type sir or ma'am");
+    }
+  })
+
+  return totalSum;
+}
 
 
 
@@ -26,16 +74,65 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(arr) {
+  if (!arr.length) {
+    return null;
+  }
+
+  let totalSum = 0;
+
+  arr.forEach(val => {
+    totalSum += val;
+  })
+
+  return totalSum / arr.length;
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(arr) {
+  if (!arr.length) {
+    return null;
+  }
+
+  let totalSum = 0;
+
+  arr.forEach(value => {
+    totalSum += value.length;
+  })
+
+  return totalSum / arr.length;
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr) {
+  if (!arr.length) {
+    return null;
+  }
+
+  let totalSum = 0;
+
+  arr.forEach(val => {
+    if (typeof val === "number") {
+      totalSum += val;
+    }
+
+    if (typeof val === "string") {
+      totalSum += val.length;
+    }
+    
+    if (val === true) {
+      totalSum += 1;
+    }
+    
+    if (typeof val === "object") {
+      throw new Error ("Unsupported data type sir or ma'am");
+    }
+  })
+  return totalSum / arr.length;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
