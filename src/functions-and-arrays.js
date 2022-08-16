@@ -131,7 +131,6 @@ function averageWordLength(stringsArray) {
 //no cumple último check
 
 function avg(mixedArray) {
-  let element = mixedArray[i];
   let totalSum = 0;
 
   if (mixedArray == "") {
@@ -139,12 +138,12 @@ function avg(mixedArray) {
   }
 
   for (let i = 0; i < mixedArray.length; i++) {
-    if (typeof element === "string") {
-      totalSum += element.length;
-    } else if (typeof element === "number") {
-      totalSum += element;
-    } else if (typeof element === "boolean") {
-      if (element) {
+    if (typeof mixedArray[i] === "string") {
+      totalSum += mixedArray[i].length;
+    } else if (typeof mixedArray[i] === "number") {
+      totalSum += mixedArray[i];
+    } else if (typeof mixedArray[i] === "boolean") {
+      if (mixedArray[i]) {
         totalSum += 1;
       } else {
         totalSum += 0;
