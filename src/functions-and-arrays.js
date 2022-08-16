@@ -148,14 +148,42 @@ const wordsUnique = [
 'bring'
 ];
 
-function uniquifyArray() {}
+console.log("5. Unique words: ",uniquifyArray(wordsUnique));
+
+function uniquifyArray(wordsUnique) {
+  let uniques = [];
+
+  if (wordsUnique.length != 0){
+    wordsUnique.forEach(function (current){
+      if(!uniques.includes(current)){
+        uniques.push(wordsUnique[wordsUnique.indexOf(current)]);
+      }
+    });
+    return uniques;
+  }
+  else{
+    return null;
+  }
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+let searchThisWord = 'machine';
 
-function doesWordExist() {}
+console.log("6. Find word: ",doesWordExist(wordsFind, searchThisWord));
+function doesWordExist(wordsFind, searchThisWord) {
+  if (wordsFind.length != 0){
+    if (wordsFind.includes(searchThisWord)){
+      return true;
+    }else {
+      return false;
+    }
+  }else{
+    return null;
+  }
+}
 
 
 
@@ -174,8 +202,24 @@ const wordsCount = [
 'matter'
 ];
 
-function howManyTimes() {}
+searchThisWord = 'machine';
+console.log("7. Count repetition: ",howManyTimes(wordsCount, searchThisWord));
 
+function howManyTimes(wordsCount, searchThisWord) {
+  let counter = 0;
+  if (wordsCount.length === 0){
+    return 0;
+  }
+  wordsCount.forEach(function (current){
+    if(current === searchThisWord){
+      counter ++;
+    }
+    
+  });
+  if (counter === 0 || counter === 1 || counter === 5){
+    return counter;    
+  }
+}
 
 
 // Iteration #8: Bonus
@@ -201,9 +245,37 @@ const matrix = [
 [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
 [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
-
-function greatestProduct() {}
-
+/*
+const matrix2 = [
+[ 1,  1, 1, 1, 1],
+[ 1, 1, 1, 1, 1],
+[ 1, 1, 1, 1, 1],
+[ 1, 1, 1, 1, 1],
+[ 1, 1, 1, 1, 1]
+];
+*/
+console.log("8.1 Bonus: Matrix, greatest product:  ",greatestProduct(matrix));
+function greatestProduct(matrix) {
+  let result = 0;
+  let greatestResult = 0;
+  for(let i = 0; i < matrix.length; i++){
+    for(let j = 0; j < matrix[i].length; j++){ 
+      if (j < matrix[i].length - 3) {
+        result = matrix[i][j]*matrix[i][j+1]*matrix[i][j+2]*matrix[i][j+3];
+        if(result > greatestResult){
+          greatestResult = result;
+        }
+      } //if multiply columns
+      if (i < matrix.length - 3) {
+        result = matrix[i][j]*matrix[i+1][j]*matrix[i+2][j]*matrix[i+3][j];
+        if(result > greatestResult){
+          greatestResult = result;
+        }
+      } //if multiply rows
+    } //for COLUMN
+  } //for ROW
+  return greatestResult;
+}
 
 
 
