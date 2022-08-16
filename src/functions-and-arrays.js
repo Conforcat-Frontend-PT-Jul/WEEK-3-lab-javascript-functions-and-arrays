@@ -14,7 +14,7 @@ function findLongestWord(array) {
   } else if (array.length === 1) {
     return array[0]
   } 
-  return array.reduce((a, b) => (a.length < b.length ? b : a ), "");
+  return array.reduce((a, b) => (a.length < b.length ? b : a ) );
   
 }
 
@@ -44,13 +44,34 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(array) {
+  if (array.length === 0) {
+    return null
+  }
+  if(array.length === 1) {
+    return array[0]
+  }
+  else {
+    return sumNumbers(array) / array.length;
+  }
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(array) { 
+if (array.length === 0) {
+return null
+}
+ if (array.length === 1) {
+
+ return array[0].length 
+}
+
+return array.reduce((a, b) => a + b.length, 0) / array.length;
+
+}
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -70,14 +91,35 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(array) {
+  if (array.length === 0) {
+
+    return null;
+  }
+  return array.filter((word, index) => {
+    return array.indexOf(word) === index;
+  })
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(array, word) {
+  if (array.length === 0) {
+    return null;
+  }
+  if (array.length === 1) {
+    return true;
+  }
+  if (array.indexOf(word) === -1) {
+    return false 
+  }
+  if (array.indexOf(word) > -1) {
+    return true;
+
+}}
 
 
 
@@ -96,7 +138,19 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(array, word) {
+  if (array.length === 0) { 
+    return 0;
+  }
+  let counter = 0; 
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === word) {
+      counter++;
+    }
+
+}
+return counter;
+}
 
 
 
