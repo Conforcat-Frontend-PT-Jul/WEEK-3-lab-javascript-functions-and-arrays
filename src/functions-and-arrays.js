@@ -70,7 +70,29 @@ function sumNumbers(numberArray) {
 }
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(arr) {
+  let sumOfNumbers = 0;
+  if (arr == "") {
+    return 0;
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    if (typeof arr[i] === "string") {
+      sumOfNumbers += arr[i].length;
+    } else if (typeof arr[i] === "number") {
+      sumOfNumbers += arr[i];
+    } else if (typeof arr[i] === "boolean") {
+      if (arr[i]) {
+        sumOfNumbers += 1;
+      } else {
+        sumOfNumbers += 0;
+      }
+    } else if (typeof arr[i] === "object") {
+      console.error("error, type is not correct");
+    }
+  }
+  return sumOfNumbers;
+}
 
 // Iteration #4: Calculate the average
 
@@ -150,11 +172,9 @@ function avg(mixedArray) {
       }
     }
   }
-  console.log(totalSum);
 
   let average = totalSum / mixedArray.length;
 
-  console.log(average);
   return average;
 }
 
@@ -173,7 +193,21 @@ const wordsUnique = [
   "bring",
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(arr) {
+  const uniqueWordsArray = [];
+
+  if (arr == "") {
+    return null;
+  }
+
+  arr.forEach(function (word) {
+    if (!uniqueWordsArray.includes(word)) {
+      uniqueWordsArray.push(word);
+    }
+  });
+
+  return uniqueWordsArray;
+}
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -187,7 +221,15 @@ const wordsFind = [
   "disobedience",
 ];
 
-function doesWordExist() {}
+function doesWordExist(arr, wordToSearch) {
+  if (arr == "") {
+    return null;
+  }
+
+  let result = arr.includes(wordToSearch);
+
+  return result;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -204,7 +246,21 @@ const wordsCount = [
   "matter",
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr, wordToSearch) {
+  let totalSum = 0;
+
+  if (arr == "") {
+    return 0;
+  }
+
+  arr.forEach(function (word) {
+    if (word === wordToSearch) {
+      totalSum++;
+    }
+  });
+
+  return totalSum;
+}
 
 // Iteration #8: Bonus
 const matrix = [
