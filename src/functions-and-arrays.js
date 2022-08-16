@@ -1,24 +1,90 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(num1, num2) {
+  if(num1>=num2) {
+    return num1
+  } else {
+    return num2
+  }
+}
 
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(someArr) {
+
+
+  if(someArr.length === 0) {
+    return null;
+  }
+
+  let longest = someArr[0];
+  
+  for (let i=1; i < someArr.length ; i++) {
+    
+    if(someArr[i].length > longest.length ) {
+      longest = someArr[i]
+    }
+
+  }
+  return longest;
+
+}
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(someArr) {
+  let sum = 0;
+
+  for (let i = 0; i < someArr.length; i++) {
+
+    sum += someArr[i];
+  }
+  return sum;
+}
 
 
+
+// const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', [1,2], 8, 10];
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(someArr) {
+
+  let sum = 0;
+  for (let i = 0; i < someArr.length; i++) {
+    
+    switch(typeof someArr[i]) {
+      case 'number':
+        sum += someArr[i];
+        break;
+
+      case 'string':
+        sum += someArr[i].length;
+        break;
+
+      case 'boolean':
+        if(someArr[i]) {
+          sum += 1;
+        }  
+  
+    /* --> ne gustaría entender porqué, con la opcion default de abajo, siempre me devuelve 'Unsupported data type'    
+
+      default:
+        return 'Unsupported data type'
+
+        */
+
+    }
+    
+  }
+  return sum;
+
+}
 
 
 
@@ -26,16 +92,36 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(someArr) {
+  if (someArr.length === 0) 
+    return null; 
+  else 
+    return sumNumbers(someArr) / someArr.length
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(someArr) {
+  if (someArr.length === 0) 
+    return null; 
+  else {
+  let sum = 0;
+  for (let i = 0; i < someArr.length; i++) { 
+    sum += someArr[i].length;
+   }
+   return sum / someArr.length
+  }
+ }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(someArr) {
+  if (someArr.length === 0) 
+    return null; 
+  else 
+    return sum(someArr) / someArr.length
+ }
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,14 +138,40 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(someArr) {
+  const newArray = [];
+
+  if(!someArr.length) {
+    return null;
+  } else {
+  for (let i=0; i< someArr.length; i++) {
+    if(newArray.includes(someArr[i])) {
+      continue;
+    } else {
+    newArray.push(someArr[i])
+    }
+  }
+}
+  return newArray;
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(someArr, str) {
+  
+  if( someArr.length === 0) {
+    return null;
+  } else {
+     const found = someArr.find(element => element === str);
+     if(!found) 
+      return false
+     else return true
+ 
+}
+}
 
 
 
@@ -78,7 +190,19 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(someArr, str) {
+  let result = 0;
+ 
+  for (let i=0; i < someArr.length; i++) {
+   
+    if(someArr[i] === str) {  
+    
+      result ++;
+      
+    }
+  }
+  return result;
+}
 
 
 
