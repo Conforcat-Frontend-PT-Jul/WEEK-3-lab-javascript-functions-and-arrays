@@ -11,8 +11,6 @@ function maxOfTwoNumbers(number1, number2) {
     }
   }
 
-
-
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
@@ -28,15 +26,12 @@ function findLongestWord(words) {
   return name;
 }
 
-
-
-
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(numbers) {
-  if (numbers.length === 0){
-  return null;
+  if (numbers.length === 0) {
+  return 0;
 }
   let sum = 0;
  
@@ -48,16 +43,46 @@ return sum;
 }
 
 
-// Iteration #3.1 Bonus:
-function sum() {}
+// Iteration #3.2 Bonus:
 
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
+// should return: 57
+
+function sum(mixedArr){
+
+  let solution = 0;
+
+  if (mixedArr.length === 0) {
+    return 0;
+  }
+  else if (mixedArr.length === 1) {
+    return mixedArr[0];
+  }
+  else {
+    for (let i = 0; i < mixedArr.length; i++) {
+      if (typeof mixedArr[i] === "string") {
+        solution += mixedArr[i].length;
+      }
+      else if (typeof mixedArr[i] === "number" || typeof mixedArr[i] === "boolean") {
+        solution += mixedArr[i];
+      } else {
+        throw new Error ("Unsupported data type sir or ma'am");
+      };
+     };
+    return solution;
+    };
+  }
+  
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbersAvg) {
+  if (numbersAvg.length === 0){
+    return null;
+  }
   let sum = 0;
   for (let i = 0; i < numbersAvg.length; i++) {
     sum += numbersAvg[i];
@@ -66,17 +91,80 @@ function averageNumbers(numbersAvg) {
   return avg;
 }
 
-// should return null if receives an empty array when called
 
 // Level 2: Array of strings
+// Iteration 4.2
+
+/*Calculate the average of an array of strings
+should declare a function named averageWordLength
+should return null if receives an empty array when called
+should return the average of a one-element array
+should return the average of a the array
+
+Iteration #4.2: Array of strings
+Implement the function named averageWordLength that receives as a single argument 
+an array of words and returns the average length of the words:
+
+You can use the following array to test your solution:
+
+*/
+
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) { 
+  if (!wordsArr.length){
+    return null;
+  }
+  else if (wordsArr.length === 1){
+    return wordsArr[0].length;
+  }
+  let total = 0;
+  for (let i = 0; i < wordsArr.length; i++) {
+    total += wordsArr[i].length;
+  }
+  let average = total / wordsArr.length;
+  return average;
+}
 
-// Bonus - Iteration #4.1
-function avg() {}
+
+
+// Bonus - Iteration #4.3
+
+// Create function avg(arr) that receives any mixed array and calculates average.
+
+/* Bonus: Calculate the average of a mixed elements array
+should declare a function named avg
+should return null if receives an empty array when called
+should return the average of the array*/
+
+
+const mixedArr1 = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
+// should return: 5.7
+
+function avg(mixedArr1) {
+  if (mixedArr1.length === 0){
+    return null;
+  }
+
+
+
+
+}
 
 // Iteration #5: Unique arrays
+
+/*Take the following array, remove the duplicates, and return a new array. You are more than likely going to want 
+to check out the Array methods indexOf and includes.
+
+
+should declare a function named uniquifyArray OK
+should return null if receives an empty array when called OK
+should return the correct uniqified array when an array of the same elements passed as argument
+should return the same array when no element is repeated
+should return the uniquified array
+*/
+
 const wordsUnique = [
   'crab',
   'poison',
@@ -91,7 +179,11 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  if (wordsUnique.length === 0){
+    return null;
+  }
+}
 
 
 
