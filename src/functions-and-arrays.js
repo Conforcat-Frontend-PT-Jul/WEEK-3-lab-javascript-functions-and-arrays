@@ -157,9 +157,7 @@ const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating
 function doesWordExist(arr, word) {
   if (!arr.length) return null;
   
-  if (arr.find(val => val === word)) return true;
-  
-  return false
+  return arr.includes(word);
 }
 
 
@@ -217,7 +215,36 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix) {
+  let biggestProduct = 0;
+  let biggerInComparison = 0;
+  
+  for (let row = 0; row < matrix.length - 4; row++) {
+    for (let col = 0; col < matrix[row].length - 4; col++) {
+      const productRow = matrix[row][col] * matrix[row+1][col] * matrix[row+2][col] * matrix[row+3][col];
+      const productCol = matrix[row][col] * matrix[row][col+1] * matrix[row][col+2] * matrix[row][col+3];
+      biggerInComparison = (productRow > productCol) ? productRow : productCol;
+      if (biggerInComparison > biggestProduct) biggestProduct = biggerInComparison;
+    }
+  }
+  
+  return biggestProduct;
+}
+
+function greatestProductOfDiagonals(matrix) {
+  let biggestProduct = 0;
+  
+  for (let row = 0; row < matrix.length - 4; row++) {
+    for (let col = 0; col < matrix[row].length - 4; col++) {
+      const productDiagonalR = matrix[row][col] * matrix[row+1][col+1] * matrix[row+2][col+2] * matrix[row+3][col+3];
+      const productDiagonalL = matrix[row][col] * matrix[row+1][col-1] * matrix[row+2][col-2] * matrix[row+3][col-3];
+      if (productDiagonalR > biggestProduct) biggestProduct = productDiagonalR;
+      if (productDiagonalL > biggestProduct) biggestProduct = productDiagonalL;
+    }
+  }
+
+  return biggestProduct;
+}
 
 
 
