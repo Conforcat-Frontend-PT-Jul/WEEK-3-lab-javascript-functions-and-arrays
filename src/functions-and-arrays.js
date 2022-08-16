@@ -131,25 +131,27 @@ function averageWordLength(stringsArray) {
 //no cumple último check
 
 function avg(mixedArray) {
+  let element = mixedArray[i];
+  let totalSum = 0;
+
   if (mixedArray == "") {
     return null;
   }
 
   for (let i = 0; i < mixedArray.length; i++) {
-    let element = mixedArray[i];
-    let totalSum = 0;
-
     if (typeof element === "string") {
-      let stringLength = element.length;
-      totalSum += stringLength;
+      totalSum += element.length;
     } else if (typeof element === "number") {
       totalSum += element;
-    } else if (typeof element == "boolean") {
-      if (element === true) {
-        totalSum++;
+    } else if (typeof element === "boolean") {
+      if (element) {
+        totalSum += 1;
+      } else {
+        totalSum += 0;
       }
     }
   }
+  console.log(totalSum);
 
   let average = totalSum / mixedArray.length;
 
