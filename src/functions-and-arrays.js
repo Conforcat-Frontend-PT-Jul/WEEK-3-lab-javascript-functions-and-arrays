@@ -50,17 +50,11 @@ function sum(arr) {
   arr.forEach(val => {
     if (typeof val === "number") {
       totalSum += val;
-    }
-
-    if (typeof val === "string") {
+    } else if (typeof val === "string") {
       totalSum += val.length;
-    }
-
-    if (val === true) {
+    } else if (typeof val === "boolean" && val) {
       totalSum += 1;
-    }
-
-    if (typeof val === "object") {
+    } else if (typeof val === "object") {
       throw new Error ("Unsupported data type sir or ma'am");
     }
   })
@@ -117,17 +111,11 @@ function avg(arr) {
   arr.forEach(val => {
     if (typeof val === "number") {
       totalSum += val;
-    }
-
-    if (typeof val === "string") {
+    } else if (typeof val === "string") {
       totalSum += val.length;
-    }
-    
-    if (val === true) {
+    } else if (val === true) {
       totalSum += 1;
-    }
-    
-    if (typeof val === "object") {
+    } else if (typeof val === "object") {
       throw new Error ("Unsupported data type sir or ma'am");
     }
   })
