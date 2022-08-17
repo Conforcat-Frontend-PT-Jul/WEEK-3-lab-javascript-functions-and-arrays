@@ -55,7 +55,10 @@ function sum(numbers) {
   let convertedArray = numbers.map(
     function (i) {
       if (typeof i === 'boolean') {
-        return i ? 1 : 0;
+        if(i === true)
+          return 1;
+        else
+          return 0;
       } else if (typeof i === 'string') {
         return i.length;
       } else if (typeof i === 'object' || typeof i === 'array') {
@@ -79,7 +82,20 @@ function sum(numbers) {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() { }
+function averageNumbers(numbers) { 
+  if (numbers.length === 0) return null;
+    
+  //calcula la suma de todos los elementos del array
+    let total = numbers.reduce(
+      function (a, b) {
+        return a + b;
+      }
+    );
+    return total/numbers.length;
+}
+
+
+  
 
 
 // Level 2: Array of strings
