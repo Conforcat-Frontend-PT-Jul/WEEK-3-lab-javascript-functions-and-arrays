@@ -55,7 +55,7 @@ function sum(numbers) {
   let convertedArray = numbers.map(
     function (i) {
       if (typeof i === 'boolean') {
-        if(i === true)
+        if (i === true)
           return 1;
         else
           return 0;
@@ -82,29 +82,39 @@ function sum(numbers) {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers(numbers) { 
+function averageNumbers(numbers) {
   if (numbers.length === 0) return null;
-    
+
   //calcula la suma de todos los elementos del array
-    let total = numbers.reduce(
-      function (a, b) {
-        return a + b;
-      }
-    );
-    return total/numbers.length;
+  let total = numbers.reduce(
+    function (a, b) {
+      return a + b;
+    }
+  );
+  return total / numbers.length;
 }
-
-
-  
-
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(words) {
+  if (words.length === 0) return null;
+
+  let contador = 0;
+  for (let i = 0; i < words.length; i++) {
+    contador = words[i].length + contador;
+  }
+  return contador / words.length;
+}
+
+averageWordLength(wordsArr);
+
+
 
 // Bonus - Iteration #4.1
-function avg() { }
+function avg() {
+
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -121,7 +131,15 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() { }
+function uniquifyArray(words) {
+  if (words.length === 0) return null;
+
+  let unique = words.filter(
+    function(value, index,self){
+      return self.indexOf(value) === index;
+  });
+  return unique;
+ }
 
 
 
