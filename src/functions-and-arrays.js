@@ -15,7 +15,7 @@ function maxOfTwoNumbers(number1, number2) {
 
 let result = maxOfTwoNumbers(8,9);
 
-console.log(result);
+console.log(`Iteration 1, answer: ${result}`);
 
 
 
@@ -36,22 +36,25 @@ function findLongestWord(array) {
 }
 
 let findLongestWordResult = findLongestWord(words);
+console.log(`Iteration 2, answer: ${findLongestWordResult}`);
 
-console.log(findLongestWordResult);
 
 
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+let  resultadoSuma=0;
 
 function sumNumbers(array) {
+  
   for(let i=0;i<array.length;i++){
-    let resultadoSuma =+ array[i];
+    resultadoSuma += array[i];
+    
   }
   return resultadoSuma;
 }
-
-
+ sumNumbers(numbers);
+console.log(`Iteration 3, answer: ${resultadoSuma}`);
 
 // Iteration #3.1 Bonus:
 function sum() {}
@@ -61,25 +64,34 @@ function sum() {}
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
-
+ let average;
 function averageNumbers(array) {
   let sumaElementos = sumNumbers(array);
-  let average = sumaElementos/array.length;
+  /*console.log(`Iteration 3, answer: ${resultadoSuma}`);*/
+  average = sumaElementos/array.length;
   return average;
 }
-
+resultadoSuma=0;
+averageNumbers(numbersAvg);
+console.log(`Iteration 4,level 1, answer: ${average}`);
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
-
+let sumatorio=0;
+let longitudArray;
+let avgWords;
 function averageWordLength(arrayOfWords) {
-  let longitudArray= arrayOfWords.length;
+  longitudArray= arrayOfWords.length;
   for(let i=0;i<arrayOfWords.length;i++){
-    let sumatorio =+ arrayOfWords[i];
+    sumatorio += arrayOfWords[i].length;
+   /* console.log(`${sumatorio}, ${arrayOfWords[i].length}`);*/
   }
-  let avgWords = sumatorio/longitudArray;
+  avgWords = sumatorio/longitudArray;
+ /* console.log(`${sumatorio}`);*/
   return avgWords;
  }
+averageWordLength(wordsArr);
+console.log(`Iteration 4,level 2, answer: ${avgWords}`);
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -100,40 +112,53 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(arrayOfWords) {
+  console.log(arrayOfWords);
   for(let i=0;i<arrayOfWords.length;i++){
     for(let j=0;j<arrayOfWords.length;j++){
       if(i!=j){
-        if(array[i]===array(j)){
-          //slice
-        }
+       if(arrayOfWords[i]===arrayOfWords[j]){
+          /*console.log(i, j);*/
+          arrayOfWords.splice(i,1);
+         /*console.log(arrayOfWords);*/
+       }
       }
     }
   }
+ return arrayOfWords;
 }
 
-
+uniquifyArray(wordsUnique);
+/*console.log(`Iteration 5`);
+console.log(wordsUnique);*/
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(arrayOfWords, wordToSearch) {
   let contador=0;
+  let contador2=0;
+  /*console.log(`word ${wordToSearch}`);*/
   for(let i=0;i<arrayOfWords.length;i++){
+     /*console.log(`aow ${arrayOfWords[i]} ${wordToSearch}`);*/
     if(arrayOfWords[i]===wordToSearch){
-       contador =+contador  
+     
+      contador += 1;  
+     /* console.log(`if ${contador}`);*/
+     
     }
-    else{
-      contador=0;
+    
+  }
+ if(contador === 0){
+      /*console.log(`false`);*/
+      return false;
     }
-
-  }
-  if(contador==0){
-    return false;
-  }
-  else{
-    return true;
-  }
+    if(contador != 0){
+     /* console.log(`true`);*/
+      return true;
+    } 
 }
+const string = 'tr';
+doesWordExist(wordsFind, string);
 
 
 
@@ -151,17 +176,20 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+let contador= 0;
 
 function howManyTimes(arrayOfWords, wordToSearch) {
   for(let i=0;i<arrayOfWords.length;i++){
     if(arrayOfWords[i] === wordToSearch){
-      let contador= 0;
-      contador++;
+      
+      contador+=1;
     }
   }
+  /*console.log(contador);*/
   return contador;
 }
-
+let word= 'truth';
+howManyTimes(wordsCount,word);
 
 
 // Iteration #8: Bonus
