@@ -85,14 +85,6 @@ function averageWordLength(wordsArr) {
   })
   return sumNumbers(allWordsLength) / wordsArr.length;
 
-  
-
-
- /*  wordsArr.sort(a,b)
-  if (a < b) return -1
-  if (a > b) return 1
-  if (a === b) return 0  */
-
 }
 
 
@@ -131,22 +123,13 @@ const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating
 function doesWordExist(wordsFind) {
   if (wordsFind.length === 0) return null
   
-  const checkedWord = wordsFind.filter((check) => {
-    return wordsFind.positionOf(check) !== -1 
+  const checkWord = wordsFind.map(function (element) { 
+    return wordsFind.indexOf(element)
   })
-  return checkedWord
-  
-    /* exist = checkedWord.filter(foundIt => foundIt !== -1)
-    return foundIt */
-  
-} 
+  const exist = checkWord.find(element => element > -1)
+    return true; 
 
-
-/* const doesExist = wordsFind.filter(function (found){
-  return indexOf(found) !== -1
-})
-return doesExist */
-
+  }
 
 
 
@@ -165,7 +148,16 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount) {
+  if (wordsCount.length === 0) return 0 
+  count = wordsCount.reduce((acc, cur) => (cur = acc +1 || 1, curr), {})
+
+  return count
+  
+  /* (prev[cur] = prev[cur] + 1 || 1, prev) */, {};
+
+  }
+
 
 
 
