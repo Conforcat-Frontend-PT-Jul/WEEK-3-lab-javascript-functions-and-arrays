@@ -76,7 +76,25 @@ function averageNumbers(numbersAvg) {
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) { 
+  if (wordsArr.length === 0) return null
+  if (wordsArr.length === 1) return wordsArr[0].length
+
+  const allWordsLength = wordsArr.map(function (wordsLength){
+   return wordsLength.length 
+  })
+  return sumNumbers(allWordsLength) / wordsArr.length;
+
+  
+
+
+ /*  wordsArr.sort(a,b)
+  if (a < b) return -1
+  if (a > b) return 1
+  if (a === b) return 0  */
+
+}
+
 
 // Bonus - Iteration #4.1
 function avg() {}
@@ -96,14 +114,39 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  if (wordsUnique.length === 0) return null
 
+    const filteredWords = wordsUnique.filter((element, index) => {
+      return wordsUnique.indexOf(element) === index
+    })
+    return filteredWords
+          
+};
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind) {
+  if (wordsFind.length === 0) return null
+  
+  const checkedWord = wordsFind.filter((check) => {
+    return wordsFind.positionOf(check) !== -1 
+  })
+  return checkedWord
+  
+    /* exist = checkedWord.filter(foundIt => foundIt !== -1)
+    return foundIt */
+  
+} 
+
+
+/* const doesExist = wordsFind.filter(function (found){
+  return indexOf(found) !== -1
+})
+return doesExist */
+
 
 
 
