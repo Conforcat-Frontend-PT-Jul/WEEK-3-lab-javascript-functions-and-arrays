@@ -4,6 +4,8 @@ function maxOfTwoNumbers(firstNumber, secondNumber) {
     return firstNumber;
   } else if (firstNumber < secondNumber) {
     return secondNumber;
+  } else if (firstNumber === secondNumber) {
+    return firstNumber, secondNumber;
   } else {
     return "This is not number! Enter a number, please.";
   }
@@ -24,13 +26,17 @@ const words = [
 
 function findLongestWord(words) {
   let longestW = "";
-
-  for (let i = 0; i < words.length; i++) {
-    if (words[i].length > longestW.length) {
-      longestW = words[i];
+  if (words.length == 0) {
+    return null;
+  } else {
+    for (let i = 0; i < words.length; i++) {
+      if (words[i].length > longestW.length) {
+        longestW = words[i];
+      }
     }
+
+    return longestW;
   }
-  return longestW;
 }
 
 findLongestWord(words);
@@ -40,10 +46,14 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(numbers) {
   let sNum = 0;
-  for (let i = 0; i < numbers.length; i++) {
-    sNum += numbers[i];
+  if (numbers.length == 0) {
+    return 0;
+  } else {
+    for (let i = 0; i < numbers.length; i++) {
+      sNum += numbers[i];
+    }
+    return sNum;
   }
-  return sNum;
 }
 
 sumNumbers(numbers);
@@ -57,13 +67,16 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(numbersAvg) {
   let numbersA = 0;
+  if (numbersAvg.length == 0) {
+    return null;
+  } else {
+    for (let i = 0; i < numbersAvg.length; i++) {
+      numbersA += numbersAvg[i];
+    }
 
-  for (let i = 0; i < numbersAvg.length; i++) {
-    numbersA += numbersAvg[i];
+    let finalResult = numbersA / numbersAvg.length;
+    return finalResult;
   }
-
-  let finalResult = numbersA / numbersAvg.length;
-  return finalResult;
 }
 
 averageNumbers(numbersAvg);
@@ -84,13 +97,16 @@ const wordsArr = [
 
 function averageWordLength(wordsArr) {
   let averageW = 0;
+  if (wordsArr.length == 0) {
+    return null;
+  } else {
+    for (let i = 0; i < wordsArr.length; i++) {
+      averageW += wordsArr[i].length;
+    }
 
-  for (let i = 0; i < wordsArr.length; i++) {
-    averageW += wordsArr[i].length;
+    let averageResult = averageW / wordsArr.length;
+    return averageResult;
   }
-
-  let averageResult = averageW / wordsArr.length;
-  return averageResult;
 }
 
 averageWordLength(wordsArr);
@@ -115,12 +131,16 @@ const wordsUnique = [
 
 function uniquifyArray(wordsUnique) {
   let noDuplicates = [];
-  for (let i = 0; i < wordsUnique.length; i++) {
-    if (!noDuplicates.includes(wordsUnique[i])) {
-      noDuplicates.push(wordsUnique[i]);
+  if (wordsUnique == 0) {
+    return null;
+  } else {
+    for (let i = 0; i < wordsUnique.length; i++) {
+      if (!noDuplicates.includes(wordsUnique[i])) {
+        noDuplicates.push(wordsUnique[i]);
+      }
     }
+    return noDuplicates;
   }
-  return noDuplicates;
 }
 
 uniquifyArray(wordsUnique);
@@ -138,7 +158,9 @@ const wordsFind = [
 ];
 
 function doesWordExist(words, wordsFind) {
-  if (wordsFind.includes(words)) {
+  if (wordsFind == 0) {
+    return null;
+  } else if (wordsFind.includes(words)) {
     return true;
   } else {
     return false;
