@@ -51,8 +51,10 @@ function sumNumbers(numbers) {
 
 
 // Iteration #3.1 Bonus:
-function sum() {
-   if (sum.length === 0) return 0
+function sum(numbers) {
+   if (numbers.length === 0) return 0
+   if (numbers.length === 1) return numbers[0]
+   return sumNumbers(numbers)
 
 }
 
