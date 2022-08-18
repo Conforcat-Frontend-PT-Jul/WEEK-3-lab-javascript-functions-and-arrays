@@ -183,16 +183,19 @@ console.log(uniquifyArray(wordsUnique));
 // Iteration #6: Find elements (word search and true if appears and false when not)
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist(wordsFind) {
-  let result = 'truth';
+function doesWordExist(wordsFind, word) {
+  
 
   if(wordsFind.length === 0) {
     return null; }
   
-  else if (wordsFind.includes(result)) {
+  else if (wordsFind.includes(word)) {
+    word = wordsFind;
     return true;
 
-  } else {return false}
+  } else {
+    return false};
+
   
   
   //let result = wordsFind.filter((word) => {
