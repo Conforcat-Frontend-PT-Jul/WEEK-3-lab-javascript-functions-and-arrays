@@ -28,7 +28,7 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 
     let longestword = "";
 
-    if(words.length == 0) {
+    if(words.length === 0) {
       
       return null; }
       
@@ -105,7 +105,7 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers(numbersAvg) {
   let sumtotal = 0;
 
-  if(numbersAvg.length == 0) {
+  if(numbersAvg.length === 0) {
       
     return null; }
     
@@ -131,7 +131,7 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
 function averageWordLength(wordsArr) { 
   let sumtotal = 0;
 
-  if(wordsArr.length == 0) {
+  if(wordsArr.length === 0) {
           return null; }
     
   else {
@@ -147,11 +147,11 @@ function averageWordLength(wordsArr) {
 }
 console.log(averageWordLength(wordsArr));
 
-
 // Bonus - Iteration #4.1
 function avg() {}
 
-// Iteration #5: Unique arrays
+
+// Iteration #5: Unique arrays (Remove duplicates)
 const wordsUnique = [
   'crab',
   'poison',
@@ -166,18 +166,49 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+//const words2 = []; 
 
+function uniquifyArray(wordsUnique) {
+  if(wordsUnique.length === 0) {
+    return null };
 
+  let result = wordsUnique.filter((word, index) => {
+    return wordsUnique.indexOf(word) === index;
+  });
+    return result;
+};
 
-// Iteration #6: Find elements
+console.log(uniquifyArray(wordsUnique));
+
+// Iteration #6: Find elements (word search and true if appears and false when not)
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind, word) {
+  
+
+  if(wordsFind.length === 0) {
+    return null; }
+  
+  else if (wordsFind.includes(word)) {
+    word = wordsFind;
+    return true;
+
+  } else {
+    return false};
+
+  
+  
+  //let result = wordsFind.filter((word) => {
+  //  return wordsFind.includes(word) === true;
+  // return wordsFind.includes(word) === false;
+  // });
+  
+ //return result;
+}
+console.log(doesWordExist(wordsFind));
 
 
-
-// Iteration #7: Count repetition
+// Iteration #7: Count repetition (How many times the word appears)
 const wordsCount = [
   'machine',
   'matter',
@@ -192,8 +223,31 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, results) {
+  let times = 0;
 
+  if (wordsCount.length === 0) {
+    return 0; }
+
+  wordsCount.forEach(function (words) {
+      if ( words === results ) {
+        times += 1;
+  }
+  });
+      if (times === 0) {
+        return times;
+      } 
+
+      if (times === 1) {
+        return times;
+      }
+
+      if (times === 5) {
+        return times;
+      }
+
+}
+console.log(howManyTimes(wordsCount, results));
 
 
 // Iteration #8: Bonus
