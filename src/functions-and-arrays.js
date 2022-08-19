@@ -1,24 +1,80 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
+function maxOfTwoNumbers(a, b) {
+  if (a > b)
+    return a;
+
+  if (b > a)
+    return b;
+
+  if (a == b)
+    return a;
+}
 
 
 
 // Iteration #2: Find longest word
-const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
+const wordsExample = ['mystery', 'brother', 'aviator oert sdfsdgdsfs', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+
+  //Devuelve null si el array es vacío 
+  if (words.length === 0) return null;
+
+  //Encuentra la palabra más larga del array
+  let longest = words.reduce(
+    function (a, b) {
+      return b.length > a.length ? b : a;
+    }
+  );
+  return longest;
+}
 
 
 
 // Iteration #3: Calculate the sum
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+const numberExample = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  //Devuelve 0 si el array es vacío 
+  if (numbers.length === 0) return 0;
 
+  //calcula la suma de todos los elementos del array
+  let total = numbers.reduce(
+    function (a, b) {
+      return a + b;
+    }
+  );
+  return total;
+}
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(numbers) {
+  if (numbers.length === 0) return 0;
+
+  let convertedArray = numbers.map(
+    function (i) {
+      if (typeof i === 'boolean') {
+        if (i === true)
+          return 1;
+        else
+          return 0;
+      } else if (typeof i === 'string') {
+        return i.length;
+      } else if (typeof i === 'object' || typeof i === 'array') {
+        throw new Error("Unsupported data type sir or ma'am");
+      } else {
+        return i;
+      }
+    });
+
+  let total = convertedArray.reduce(
+    function (a, b) {
+      return a + b;
+    }
+  );
+  return total;
+}
 
 
 
@@ -26,16 +82,39 @@ function sum() {}
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbers) {
+  if (numbers.length === 0) return null;
 
+  //calcula la suma de todos los elementos del array
+  let total = numbers.reduce(
+    function (a, b) {
+      return a + b;
+    }
+  );
+  return total / numbers.length;
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(words) {
+  if (words.length === 0) return null;
+
+  let contador = 0;
+  for (let i = 0; i < words.length; i++) {
+    contador = words[i].length + contador;
+  }
+  return contador / words.length;
+}
+
+averageWordLength(wordsArr);
+
+
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg() {
+
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,16 +131,40 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(words) {
+  if (words.length === 0) return null;
+
+  let unique = words.filter(
+    function (value, index, self) {
+      return self.indexOf(value) === index;
+    });
+  return unique;
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(words, searchElement) {
+  if (words.length === 0) return null;
 
+  let unique = words.filter(
+    function (_searchElement, index, self) {
+      return self.indexOf(_searchElement) === index;
+    });
 
+  if (unique.length === 1) return true
+
+  let index = words.indexOf(searchElement);
+  if (index === -1) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+// doesWordExist(wordsFind, 'apple');
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -78,9 +181,17 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(words, searchElement) {
+  if (words.length === 0) return 0;
 
-
+  let contador = 0;
+  for (let i = 0; i < words.length; i++) {
+    if (words[i] === searchElement) {
+      contador = contador + 1;
+    }
+  }
+  return contador;
+}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -106,7 +217,7 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct() { }
 
 
 
