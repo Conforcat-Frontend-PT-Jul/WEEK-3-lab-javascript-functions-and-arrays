@@ -135,20 +135,36 @@ function uniquifyArray(words) {
   if (words.length === 0) return null;
 
   let unique = words.filter(
-    function(value, index,self){
+    function (value, index, self) {
       return self.indexOf(value) === index;
-  });
+    });
   return unique;
- }
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() { }
+function doesWordExist(words, searchElement) {
+  if (words.length === 0) return null;
 
+  let unique = words.filter(
+    function (_searchElement, index, self) {
+      return self.indexOf(_searchElement) === index;
+    });
 
+  if (unique.length === 1) return true
+
+  let index = words.indexOf(searchElement);
+  if (index === -1) {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+// doesWordExist(wordsFind, 'apple');
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -165,9 +181,17 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() { }
+function howManyTimes(words, searchElement) {
+  if (words.length === 0) return 0;
 
-
+  let contador = 0;
+  for (let i = 0; i < words.length; i++) {
+    if (words[i] === searchElement) {
+      contador = contador + 1;
+    }
+  }
+  return contador;
+}
 
 // Iteration #8: Bonus
 const matrix = [
