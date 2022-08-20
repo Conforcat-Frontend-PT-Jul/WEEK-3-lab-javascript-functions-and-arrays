@@ -49,7 +49,29 @@ function sumNumbers(numbers) {
 }
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArrx = [6, 12, "miami", 1, true, "barca", "200", "lisboa", 8, 10];
+
+function sum(mixedArrx) {
+  let sumItems = 0;
+  if (!mixedArrx.length || mixedArrx.includes(0)) {
+    return 0;
+  }
+
+  mixedArrx.forEach((el) => {
+    if (typeof el === "number") {
+      sumItems += el;
+    } else if (typeof el === "string" || el instanceof String) {
+      sumItems += Number(el.length);
+    } else if (typeof el === "boolean" || el instanceof Boolean) {
+      let bool = el ? 1 : 0;
+      sumItems += bool;
+    } else {
+      throw Error;
+    }
+  });
+
+  return sumItems;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
@@ -76,10 +98,18 @@ const wordsArr = [
 
 function averageWordLength(wordsArr) {
   if (!wordsArr.length) return null;
+  if (wordsArr.length === 1) return wordsArr[0].length;
+  const average = wordsArr.reduce((a, b) => a + b.length, 0) / wordsArr.length;
+  return average;
 }
 
 // Bonus - Iteration #4.1
-function avg() {}
+const arr = [1, "correspond", "linen", "motif", 6];
+function avg(arr) {
+  if (!arr.length) return null;
+  const average = arr.reduce((a, b) => a + b.length, 0) / arr.length;
+  return average;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -96,7 +126,16 @@ const wordsUnique = [
   "bring",
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
+  const uniqueArray = [];
+  if (!wordsUnique.length) return null;
+  for (let value of wordsUnique) {
+    if (uniqueArray.indexOf(value) === -1) {
+      uniqueArray.push(value);
+    }
+  }
+  return uniqueArray;
+}
 
 // Iteration #6: Find elements
 const wordsFind = [
@@ -110,7 +149,14 @@ const wordsFind = [
   "disobedience",
 ];
 
-function doesWordExist() {}
+function doesWordExist(wordsFind, x) {
+  if (!wordsFind.length) return null;
+  for (let value of wordsFind) {
+    if (wordsFind.includes(x)) {
+      return true;
+    } else return false;
+  }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -127,7 +173,17 @@ const wordsCount = [
   "matter",
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsCount, x) {
+  if (!wordsCount.length) return 0;
+
+  let counter = 0;
+  for (let el of wordsCount) {
+    if (el === x) {
+      counter++;
+    }
+  }
+  return counter;
+}
 
 // Iteration #8: Bonus
 const matrix = [
