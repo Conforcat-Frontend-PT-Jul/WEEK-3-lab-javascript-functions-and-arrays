@@ -66,6 +66,7 @@ function sum(mixedArr){
       }
       else if (typeof mixedArr[i] === "number" || typeof mixedArr[i] === "boolean") {
         solution += mixedArr[i];
+
       } else {
         throw new Error ("Unsupported data type sir or ma'am");
       };
@@ -95,20 +96,6 @@ function averageNumbers(numbersAvg) {
 // Level 2: Array of strings
 // Iteration 4.2
 
-/*Calculate the average of an array of strings
-should declare a function named averageWordLength
-should return null if receives an empty array when called
-should return the average of a one-element array
-should return the average of a the array
-
-Iteration #4.2: Array of strings
-Implement the function named averageWordLength that receives as a single argument 
-an array of words and returns the average length of the words:
-
-You can use the following array to test your solution:
-
-*/
-
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(wordsArr) { 
@@ -122,50 +109,45 @@ function averageWordLength(wordsArr) {
   for (let i = 0; i < wordsArr.length; i++) {
     total += wordsArr[i].length;
   }
-  let average = total / wordsArr.length;
-  return average;
+  return total / wordsArr.length;
+  
 }
 
 
 
-// Bonus - Iteration #4.3
-
-// Create function avg(arr) that receives any mixed array and calculates average.
-
-/* Bonus: Calculate the average of a mixed elements array
-should declare a function named avg
-should return null if receives an empty array when called
-should return the average of the array*/
+// Bonus - Iteration #4.1
 
 
 const mixedArr1 = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 
-// should return: 5.7
-
 function avg(mixedArr1) {
   if (mixedArr1.length === 0){
     return null;
-  }
-
-
-
-
 }
+  else {
+    let total = 0;
+    for (let i = 0; i < mixedArr1.length; i++){
+      if (typeof mixedArr1[i] === "string"){
+        mixedArr1[i] = mixedArr1[i].length;
+        total += mixedArr1[i];
+      } else {
+        total += mixedArr1[i];
+      }
+    }
+    return total / mixedArr1.length;
+  }
+}
+
+
 
 // Iteration #5: Unique arrays
 
 /*Take the following array, remove the duplicates, and return a new array. You are more than likely going to want 
 to check out the Array methods indexOf and includes.
 
-
-should declare a function named uniquifyArray OK
-should return null if receives an empty array when called OK
-should return the correct uniqified array when an array of the same elements passed as argument
-should return the same array when no element is repeated
-should return the uniquified array
 */
 
-const wordsUnique = [
+const uniqueWords = [
   'crab',
   'poison',
   'contagious',
@@ -179,9 +161,20 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray(wordsUnique) {
-  if (wordsUnique.length === 0){
+function uniquifyArray(uniqueWords) {
+  if (!uniqueWords.length){
     return null;
+  } 
+  else {
+    let result = [];
+    for (let i = 0; i < uniqueWords.length; i++){
+      if (result.includes(uniqueWords[i])){
+        continue;
+      } else {
+        result.push(uniqueWords[i]);
+      }
+    }
+    return result;
   }
 }
 
@@ -190,12 +183,19 @@ function uniquifyArray(wordsUnique) {
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
+function doesWordExist(findWords, word) {
+  if (!findWords.length) {
+    return null;
+  } else if (findWords.includes(word)) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 
 // Iteration #7: Count repetition
-const wordsCount = [
+const wordsRepetition = [
   'machine',
   'matter',
   'subset',
@@ -209,8 +209,20 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
-
+function howManyTimes(wordsRepetition, word) {
+  if (!wordsRepetition.length){
+    return 0;
+  } 
+  else {
+    let howMany = 0;
+    for (let i = 0; i < wordsRepetition.length; i++){
+      if (wordsRepetition[i] === word) {
+        count += 1;
+      }
+    }
+    return howMany;
+  }
+}
 
 
 // Iteration #8: Bonus
