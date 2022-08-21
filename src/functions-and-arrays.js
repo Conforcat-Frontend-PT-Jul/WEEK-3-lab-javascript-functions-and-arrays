@@ -61,6 +61,7 @@ const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 function averageNumbers(array) {
   let total = 0;
   let count = 0;
+  
 
   array.forEach(function(item) {
     total += item;
@@ -71,6 +72,7 @@ function averageNumbers(array) {
   }else if (numbers = ([])) {
     return null;
   }
+  
 
 }
 
@@ -82,10 +84,28 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
  
 function averageWordLength() { 
   
+  /*if(typeof emptyArray === undefined || emptyArray.length == 0) {
+    return null;
+  }*/
+  let sumchar = 0;
+  let average;
+
+  wordsArr.forEach((quote) => {
+    sumchar += quote.length;
+  });
+
+  console.log(average = sumchar/wordsArr.length || null);
+
+  
 }
 
+
+
+
 // Bonus - Iteration #4.1
-function avg() {}
+function avg() {
+  
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -102,14 +122,31 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(word) {
+
+  if(word.length === 0) {
+    return null;
+  }else{
+    const uniqueWord = word.filter(element, index, arr => arr.indexOf(element)) === index;
+    return uniqueWord;
+  }
+}
 
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(array, words) {
+  if(array.length === 0) {
+    return null;
+  }else if (array.includes (words) === true) {
+    return true;
+  }else{
+    return false;
+  }
+
+}
 
 
 
@@ -130,6 +167,11 @@ const wordsCount = [
 
 function howManyTimes() {}
 
+const wordRepeat =  array
+  .map(e => e.split(' '))
+  .flat()
+  .filter((e, i, a) => a.indexOf(e) !== i);
+  console.log([...new Set(wordRepeat)]);
 
 
 // Iteration #8: Bonus
