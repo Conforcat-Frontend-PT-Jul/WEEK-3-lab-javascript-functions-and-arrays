@@ -1,41 +1,175 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
+function maxOfTwoNumbers(number1, number2) {
+  if (number1>=number2){
+    return number1;
+  } else {
+    return number2;
+  }
+}
 
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  let theLongestWord = "";
+
+  if (words.length===0){
+    return null;
+  } else if (words.length===1){
+    return words[0];
+  } else {
+      for(let i=0; i<words.length; i++){
+        if (words[i].length>theLongestWord.length){
+          theLongestWord=words[i];
+        }
+      }
+    }
+    return theLongestWord;
+  }
+
 
 
 
 // Iteration #3: Calculate the sum
-const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10]; //suma = 87 
 
-function sumNumbers() {}
+function sumNumbers(numbers) {
+  let suma = 0; 
 
+  if (numbers.length===0){
+    return 0; 
+  } else if (numbers.length === 1){
+      return numbers[0];   
+    } else {
+      for (let i = 0; i<numbers.length; i++){
+        suma += numbers[i];
+      }
+    }
+    return suma; 
+}
 
-
+const mixedArr = [6, 12, 'miami', [], true, 'barca', '200', 'lisboa', 8, 10];
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(mixedArr) {
+  let suma = 0; 
 
+  if(mixedArr.length===0){
+    return 0; 
+  } else if (mixedArr.length===1){
+      let result= typeof mixedArr[0];
+      if (result==="string" || result==="boolean" || result==="number") {
+        let element = mixedArr[0];
+        switch (result){
+          case 'string': 
+            let numero = element.length;
+            suma = numero; 
+            break; 
+          case 'boolean':
+            if (element) {
+              suma = 1; 
+            } 
+          case 'number':
+            if (result === "number"){
+            }
+            suma = element;
+        }
+      } else {
+        throw new Error ("Unsupported data type");  
+      }
+    return suma; 
+  } else {
+    for (element of mixedArr){
+      let result= typeof element;
+      if (result==="string" || result==="boolean" || result==="number") {
+        switch (result){
+          case 'string': // result = 19 
+            let numero = element.length;
+            suma += numero; 
+            break; 
+          case 'boolean': //result = 20 
+            if (element) {
+              suma += 1; 
+            } 
+            break; 
+          case 'number': // result = 57
+            suma += element;
+            break; 
+        }
+      } else {
+        throw new Error ("Unsupported data type"); 
+      }
+    }
+  }
+  return suma; 
+}
 
-
-// Iteration #4: Calculate the average
+// Iteration #4: Calculate the averagemax
 // Level 1: Array of numbers
-const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
+const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9]; //result = 6 
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  if (numbersAvg.length===0){
+    return null; 
+  } else {
+    let total = 0; 
+    let suma, media;
+
+    total = numbersAvg.length; 
+    suma = sumNumbers(numbersAvg);
+    media = suma/total; 
+    return media;
+  }
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) { 
+  let total = wordsArr.length; 
+  let media; 
+  let suma = 0; 
+  if (wordsArr.length === 0){
+    return null; 
+  } else {
+      for (element of wordsArr){
+      let cadena = element.length; 
+      suma += cadena; 
+      }
+    }
+  media = suma/total; 
+  return media; 
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(mixedArr) {
+  let total = mixedArr.length; 
+  let media; 
+  if (mixedArr.length===0){
+    return null; 
+  } else {
+    let sumatori = sum(mixedArr); 
+    media = sumatori/total; 
+  }
+  return media; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
