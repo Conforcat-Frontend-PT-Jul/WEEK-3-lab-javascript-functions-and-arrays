@@ -49,7 +49,7 @@ function sumNumbers(numbers) {
     return suma; 
 }
 
-const mixedArr = [6, 12, 'miami', [], true, 'barca', '200', 'lisboa', 8, 10];
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
 // Iteration #3.1 Bonus:
 function sum(mixedArr) {
   let suma = 0; 
@@ -75,7 +75,7 @@ function sum(mixedArr) {
             suma = element;
         }
       } else {
-        throw new Error ("Unsupported data type");  
+        throw ("Unsupported data type");  
       }
     return suma; 
   } else {
@@ -97,7 +97,7 @@ function sum(mixedArr) {
             break; 
         }
       } else {
-        throw new Error ("Unsupported data type"); 
+        throw ("Unsupported data type"); 
       }
     }
   }
@@ -156,20 +156,7 @@ function avg(mixedArr) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//second part 
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -186,15 +173,33 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(wordsUnique) {
 
+  if (wordsUnique.length===0){
+    return null; 
+  } else {
+    let result = wordsUnique.filter((item,index)=>{
+      return wordsUnique.indexOf(item) === index;
+    })
+    return result; 
+  }
+}
 
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
+function doesWordExist(wordsFind, wordToFind) {
+  if (wordsFind.length===0){
+    return null; 
+  } else {
+    if(wordsFind.includes (wordToFind)){
+      return true; 
+    } else {
+      return false; 
+    }
+  }
+}
 
 
 // Iteration #7: Count repetition
@@ -212,8 +217,15 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
-
+function howManyTimes(wordsCount, word) {
+  let contador=0; 
+  for (let i = 0; i<wordsCount.length; i++){
+    if (wordsCount[i].indexOf(word)!== -1){
+      contador++
+    }
+  }
+  return contador; 
+}
 
 
 // Iteration #8: Bonus
@@ -241,7 +253,7 @@ const matrix = [
 ];
 
 function greatestProduct() {}
-
+// no pude entender el enunciado
 
 
 
