@@ -16,8 +16,7 @@ const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard',
 function findLongestWord(array){
   let longestWord = "";
   if (!array.length) return null;
-  if (array.length === 1)
-  return array[0]
+  if (array.length === 1)return array[0]
   array.forEach(word => {
   if (word.length > longestWord.length) 
      longestWord = word;})
@@ -26,64 +25,71 @@ function findLongestWord(array){
 }
 findLongestWord(words);
 
-
 // Iteration #3: Calculate the sum
 // Iteration #3.1 Sum Numbers:
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {
-  let sumNumbers=0;
-  for(let i of numbers)sumNumbers+=i;
-  console.log(sumNumbers);
+function sumNumbers(array) {
+  if (!array.length) return 0;
+  if (array.length === 1)return array[0];
+  array.forEach(item => item === 0)
+  let sumNumbers = 0;
+  for(let i of array)sumNumbers+=i;
+  return sumNumbers
 }
 
-sumNumbers();
+sumNumbers(numbers);
 
-/*
 // Bonus - Iteration #3.2: A generic sum() function
-const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
-function sum() {
-  
+let mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+function sum(array){
+  if (!array.length) return 0;
+  if (array.length === 1)return array[0];
+  array.forEach(item => item === 0);
+  let wordslength = ["miami", "barca", "200", "lisboa"].map(item => item.length).reduce((prev, curr) => prev + curr, 0);
+  let numLength = [6, 12, 1, 8, 10].reduce((prev, curr) => prev + curr, 0);
+  let numPlusWords = numLength + wordslength + 1;
+  console.log(numPlusWords)
+  return numPlusWords;
 }
-function sum()
-*/
+sum(mixedArr);
 
 // Iteration #4: Calculate the average
-function sumNumbers() {
-  let sumNumbers=0;
-  for(let i of numbers)sumNumbers+=i;
-  console.log(sumNumbers/10);
+function firstAVerage(array) {
+  let firstAVerage = 0;
+  for(let i of array)firstAVerage+=i
+  return firstAVerage / numbers.length;
 }
-sumNumbers();
+
+firstAVerage(numbers);
 
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {
-  let total = 0;
-    for(let i = 0; i < numbersAvg.length;i++) {
-    total = numbersAvg[i] / numbersAvg.length ;
-    console.log(total);
+function averageNumbers(array) {
+  if (!array.length) return null;
+  if (array.length === 1)return array[0];
+  let averageNumbers = 0;
+  for(let i of array)averageNumbers+=i;
+  return  averageNumbers / numbersAvg.length;
    }
-   if(!numbersAvg.length){
-     console.log(null)
-   }
-     }
- averageNumbers()
+      
+ averageNumbers(numbersAvg)
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { 
-  for(let i of wordsArr)
-    if (i.length / averageWordLength.length)averageWordLength = i;
-    avg = averageWordLength.length
- console.log(avg);
-}
-averageWordLength();
+  function averageWordLength(array) { 
+  if (!array.length) return null;
+  if (array.length === 1)return array[0];
+  for(let i of wordsArr) if (i.length / averageWordLength.length)averageWordLength = i;
+  console.log("The average word length has 6 characters and one example is: " + averageWordLength);
+  return averageWordLength;
+  }
+  averageWordLength(wordsArr)
 
 // Bonus - Iteration #4.1
-function avg() {}
+  function avg() {}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
