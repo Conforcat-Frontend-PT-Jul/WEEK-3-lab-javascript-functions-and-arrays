@@ -42,6 +42,7 @@ sumNumbers(numbers);
 
 // Bonus - Iteration #3.2: A generic sum() function
 let mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+
 function sum(array){
   if (!array.length) return 0;
   if (array.length === 1)return array[0];
@@ -52,6 +53,7 @@ function sum(array){
   console.log(numPlusWords)
   return numPlusWords;
 }
+
 sum(mixedArr);
 
 // Iteration #4: Calculate the average
@@ -86,6 +88,7 @@ const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smar
   console.log("The average word length has 6 characters and one example is: " + averageWordLength);
   return averageWordLength;
   }
+
   averageWordLength(wordsArr)
 
 // Bonus - Iteration #4.1
