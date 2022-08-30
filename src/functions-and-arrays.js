@@ -109,7 +109,21 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(array) {
+  if (!array.length) return null;
+  let duplicates = [];
+  for (i=0;i<array.length;i++);
+  if (array[i] == "poison") {
+  duplicates.push(array.splice(i, 1));
+    } if (array[i] == "simple"){
+      duplicates.push(array.splice(i, 1));
+    }if (array[i] == "bring"){
+      duplicates.push(array.splice(i, 1));
+    }
+  }
+
+
+  uniquifyArray(wordsUnique)
 
 
 
