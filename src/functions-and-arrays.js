@@ -57,9 +57,7 @@ sum(mixedArr);
 
 // Iteration #4: Calculate the average
 function firstAVerage(array) {
-  let firstAVerage = 0;
-  for(let i of array)firstAVerage+=i
-  return firstAVerage / numbers.length;
+return sumNumbers(array) / array.length;
 }
 
 firstAVerage(numbers);
@@ -79,11 +77,11 @@ function averageNumbers(array) {
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-  function averageWordLength(array) { 
-  if (!array.length) return null;
+function averageWordLength(array) { 
+  if (!array.length) return [];
   if (array.length === 1)return array[0];
-  for(let i of wordsArr) if (i.length / averageWordLength.length)averageWordLength = i;
-  console.log("The average word length has 6 characters and one example is: " + averageWordLength);
+  for(let i of array) if (i.length / array.length)averageWordLength = i;
+  console.log(`The average word length has ${averageWordLength.length} characters and one example is: ${averageWordLength}`);
   return averageWordLength;
   }
 
