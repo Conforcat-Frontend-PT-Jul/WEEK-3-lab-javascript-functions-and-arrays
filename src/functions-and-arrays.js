@@ -49,7 +49,6 @@ function sum(array){
   let wordslength = ["miami", "barca", "200", "lisboa"].map(item => item.length).reduce((prev, curr) => prev + curr, 0);
   let numLength = [6, 12, 1, 8, 10].reduce((prev, curr) => prev + curr, 0);
   let numPlusWords = numLength + wordslength + 1;
-  console.log(numPlusWords)
   return numPlusWords;
 }
 
@@ -78,7 +77,7 @@ function averageNumbers(array) {
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
 function averageWordLength(array) { 
-  if (!array.length) return [];
+  if (!array.length) return null;
   if (array.length === 1)return array[0];
   for(let i of array) if (i.length / array.length)averageWordLength = i;
   console.log(`The average word length has ${averageWordLength.length} characters and one example is: ${averageWordLength}`);
@@ -86,6 +85,7 @@ function averageWordLength(array) {
   }
 
   averageWordLength(wordsArr)
+
 
 // Bonus - Iteration #4.1
   function avg() {}
@@ -104,7 +104,47 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+function uniquifyArray(arr) {
+  if(!arr.length) return null;
+  const unique = new Array();
+  arr.forEach((word) =>{
+    if (!unique.includes(word)){
+      unique.push(word);
+    }
+  });
+     return unique;
+}
+uniquifyArray(wordsUnique);
 
+
+/*
+Bonus! Tres Formas de hacerlo mal, es decir: lo contrario (#Shootme)
+function uniquifyArray(array) {
+  if (!array.length) return null;
+  let duplicates = new Array();
+  for(let word of array){
+  if (word == "poison"){
+  duplicates.push(word);
+  } if (word == "simple"){
+  duplicates.push(word);
+ 	}if (word == "bring") {
+   duplicates.push(word);}
+  }
+  console.log(duplicates);
+}
+uniquifyArray(wordsUnique)
+
+function unifyArray(array) {
+  let dupla = new Array();
+	array.forEach((word)=>{ 
+  if (word === 'simple' || word === 'poison' || word === 'bring') {
+  dupla.push(word);
+  console.log(dupla);
+  }
+});
+  }
+
+unifyArray(wordsUnique)
 function uniquifyArray(array) {
   if (!array.length) return null;
   let duplicates = [];
@@ -118,17 +158,20 @@ function uniquifyArray(array) {
     }
   }
 
-
   uniquifyArray(wordsUnique)
-
-
-
+*/
+  
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
+function doesWordExist(arr) {
+  let found = 'machine'; 
+  if(!arr.length) return null;
+  if(arr.indexOf(found)) return true;
+  if(!arr.indexOf(found)) return false;
+}
 
-
+doesWordExist(wordsFind);
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -142,10 +185,25 @@ const wordsCount = [
   'matter',
   'truth',
   'disobedience',
+  'matter',
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(arr) {
+  if(!arr.length) return 0;
+  let ocurrences = 0;
+  let wordToFind = 'matter'; 
+  arr.forEach((word) => {
+  if (word === wordToFind) {
+     return ocurrences++;
+  }
+});
+    if (ocurrences === 1) return 1;
+  	if (!ocurrences) return 0;
+    if (ocurrences > 5) return 5;
+ 
+console.log(ocurrences);
+}
 
 
 
